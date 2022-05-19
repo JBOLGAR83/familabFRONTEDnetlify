@@ -1,0 +1,29 @@
+
+
+
+.button {
+  text-align: center;
+  margin: 20rem;
+}
+
+body{
+  text-align: center;
+
+  margin:2em;
+}
+
+div{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+header{
+
+  display: inline-block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: flex-end;
+
+}

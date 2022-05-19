@@ -1,0 +1,54 @@
+footer {
+	align-self: flex-end;
+	padding: 2.5rem ;
+    color: black;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-top: .05rem solid #e5e5e5;
+	width: 100%;
+	margin-top: 50px;
+  position:absolute;
+  bottom: visible;
+
+}
+
+
+.btn-link  {
+  color: green
+}
+.btn-link .fa-github-square:hover {
+  color: #000000;
+}
+.btn-link .fa-gitlab:hover {
+  color: #e24329;
+}
+.btn-link .fa-envelope:hover {
+  color: #087fe3;
+}
+footer a.btn,
+footer a.btn:hover,
+footer .legal,
+footer .legal:hover {
+  color: inherit;
+}
+footer .legal {
+  margin: 0 1rem;
+}
+footer a.btn-link {
+  font-size: 1.6rem;
+}
+.fa-youtube:hover {
+  color: #ff0000;
+}
+fa-icon {
+  color: grey;
+}
+input[type="radio"] {
+  display: none;
+}
+label:hover {
+  color: orange;
+}
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
