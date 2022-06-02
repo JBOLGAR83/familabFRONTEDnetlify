@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component' ; //añado el componente home y su ruta
+import { HomeComponent } from './home/home.component' ; 
 
 const routes: Routes = [
-   { // muestra la pagina inicial de la aplicacion
+   {
     path : '' ,
     component : HomeComponent
   }

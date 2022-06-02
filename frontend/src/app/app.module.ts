@@ -5,23 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
 
 @NgModule({
-  declarations: [  //lugar donde declaro cada uno de los componentes de la aplicación
+  declarations: [
     AppComponent,
   ],
-  imports: [   //importo los elementos que tienen que aparecer al principio, en cada import, aparecen los modulos que cualgan de este módulo
+  imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     FontAwesomeModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
   ],
-  providers: [], //en servicios
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
