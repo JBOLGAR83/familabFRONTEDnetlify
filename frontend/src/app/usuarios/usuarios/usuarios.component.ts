@@ -21,14 +21,11 @@ export class UsuariosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.usuarioService
-      .getUsuarios()
-      .subscribe(
-        (response) =>
-          (this.usuarios = this.usuarioService.extraerUsuarios(response))
-      );
-    this.getTodosUsuarios();
-  }
+
+    this.usuarioService.getUsuarios().subscribe((response) =>
+      this.usuarios = this.usuarioService.extraerUsuarios(response));
+      this.getTodosUsuarios();
+    }
 
   verDatos(usuario: Usuario): void {
     this.usuarioVerDatos = usuario;
@@ -36,19 +33,26 @@ export class UsuariosComponent implements OnInit {
 
   onUsuarioEliminar(usuario: Usuario): void {
     console.log(`He eliminado a ${usuario.dni}`);
-    this.usuarios = this.usuarios.filter((u) => usuario !== u);
+    this.usuarios = this.usuarios.filter(u => usuario !== u);
   }
 
   getTodosUsuarios(): void {
     this.usuarioService.getUsuarios().subscribe((r) => {
       this.numPaginas = this.auxService.getPaginasResponse(r);
       for (let index = 1; index <= this.numPaginas; index++) {
-        this.usuarioService.getUsuariosPagina(index).subscribe((response) => {
+        this.usuarioService.getUsuariosPagina(index).subscribe(response => {
           this.todosUsuarios.push(
             ...this.usuarioService.extraerUsuarios(response)
           );
         });
       }
     });
+  }
+  borrarUsuario(id: string): void {
+    this.usuarioService.deleteUsuario(id)
+  }
+
+  modificarUsuario(usuario: UsuarioImpl): void {
+    this.usuarioService.patchUsuario(usuario).subscribe();
   }
 }

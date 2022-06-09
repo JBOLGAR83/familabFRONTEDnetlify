@@ -16,7 +16,7 @@ export class UsuarioFormComponent implements OnInit {
   }
   create(): void {
 
-    this.usuarioService.create(this.usuario);
+    this.usuarioService.postUsuario(this.usuario);
 
   }
 }

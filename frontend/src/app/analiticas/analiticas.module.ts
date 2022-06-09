@@ -10,6 +10,8 @@ import { NuevoComponent } from './analiticas/nuevo/nuevo.component';
 import { VerComponent } from './analiticas/ver/ver.component';
 import { AnaliticasRoutingModule } from './analiticas-routing.module';
 import { AnaliticasComponent } from './analiticas/analiticas.component';
+import { VerTodasAnaliticasComponent } from './ver-todas-analiticas/ver-todas-analiticas.component';
+import { CrearAnaliticasComponent } from './crear-analiticas/crear-analiticas.component';
 
 
 
@@ -22,6 +24,8 @@ import { AnaliticasComponent } from './analiticas/analiticas.component';
     OrinaIdComponent,
     NuevoComponent,
     VerComponent,
+    VerTodasAnaliticasComponent,
+    CrearAnaliticasComponent,
 ],
   imports: [
     CommonModule,

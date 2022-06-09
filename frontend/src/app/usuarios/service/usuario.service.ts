@@ -24,7 +24,7 @@ export class UsuarioService {
 
   extraerUsuarios(respuestaApi: any): Usuario[] {
   const usuarios: Usuario[] = [];
-  respuestaApi.dusuarios.forEach((p: any) => {
+  respuestaApi._embedded.usuarios.forEach((p: any) => {
   usuarios.push(this.mapearUsuario(p));
 
 
@@ -42,6 +42,18 @@ export class UsuarioService {
 
   create(usuario: Usuario): void {
   console.log(`Se ha creado el usuario: ${JSON.stringify(usuario)}`);
+  }
+
+  postUsuario(usuario: UsuarioImpl){
+    this.http.post(this.urlEndPoint, usuario).subscribe();
+  }
+
+  deleteUsuario(dniEliminar: string){
+    this.http.delete(dniEliminar).subscribe();
+  }
+
+  patchUsuario(usuario: UsuarioImpl) {
+    return this.http.patch<any>(`${this.urlEndPoint}/${usuario.getIdUsuario(usuario.urlUsuario)}`, usuario);
   }
 
   getUsuariosPagina(pagina: number): Observable<any> {

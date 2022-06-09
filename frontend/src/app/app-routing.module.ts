@@ -8,14 +8,14 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'analiticas',
+    loadChildren: () =>
+      import('src/app/analiticas/analiticas.module').then((m) => m.AnaliticasModule),
+  },
+  {
     path: 'usuarios',
     loadChildren: () =>
       import('src/app/usuarios/usuarios.module').then((m) => m.UsuariosModule),
-  },
-  {
-    path: 'analitica',
-    loadChildren: () =>
-      import('./analiticas/analiticas.module').then((m) => m.AnaliticasModule),
   },
   {
     path: 'not-found',
