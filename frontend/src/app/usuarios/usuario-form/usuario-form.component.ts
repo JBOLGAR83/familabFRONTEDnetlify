@@ -8,7 +8,7 @@ import { UsuarioService } from '../service/usuario.service';
   styleUrls: ['./usuario-form.component.css']
 })
 export class UsuarioFormComponent implements OnInit {
-  usuario: UsuarioImpl = new UsuarioImpl(0, '', '');
+  usuario: UsuarioImpl = new UsuarioImpl(0, 0, '', '','',[]);
 
   constructor(private usuarioService: UsuarioService) { }
 

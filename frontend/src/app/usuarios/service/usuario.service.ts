@@ -18,26 +18,36 @@ export class UsuarioService {
   private http: HttpClient,
   private auxService: AuxiliarService) { }
 
+  /* getUsuarios(): Observable<Usuario[]> {
+    debugger;
+  return this.http.get<Usuario[]>(this.urlEndPoint+'/findall');
+  } */
   getUsuarios(): Observable<any> {
-  return this.http.get<any>(this.urlEndPoint);
-  }
+    return this.http.get<any>(this.urlEndPoint);
+    }
 
   extraerUsuarios(respuestaApi: any): Usuario[] {
   const usuarios: Usuario[] = [];
   respuestaApi._embedded.usuarios.forEach((p: any) => {
   usuarios.push(this.mapearUsuario(p));
 
-
-
   });
   return usuarios;
   }
 
   mapearUsuario(usuarioApi: any): UsuarioImpl {
+    const urlSelf = usuarioApi._links.self.href;
+    console.log(urlSelf);
+    const url = urlSelf.split('/');
+	  const id =   parseInt(url[url.length -1]);
+
   return new UsuarioImpl(
+    id,
   usuarioApi.dni,
   usuarioApi.nombre,
-  usuarioApi.fechaNacimiento);
+  usuarioApi.fechaNacimiento,
+  usuarioApi.urlUsuario,
+  usuarioApi.analiticas);
   }
 
   create(usuario: Usuario): void {
@@ -48,12 +58,14 @@ export class UsuarioService {
     this.http.post(this.urlEndPoint, usuario).subscribe();
   }
 
-  deleteUsuario(dniEliminar: string){
-    this.http.delete(dniEliminar).subscribe();
+  deleteUsuario(id: number):Observable<any> {
+    const url = `${this.urlEndPoint}/${id}`;
+    debugger;
+    return this.http.delete<any>(url);
   }
 
   patchUsuario(usuario: UsuarioImpl) {
-    return this.http.patch<any>(`${this.urlEndPoint}/${usuario.getIdUsuario(usuario.urlUsuario)}`, usuario);
+    return this.http.patch<any>(`${this.urlEndPoint}/${usuario.id}`, usuario);
   }
 
   getUsuariosPagina(pagina: number): Observable<any> {

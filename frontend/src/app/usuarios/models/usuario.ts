@@ -1,8 +1,10 @@
 export interface Usuario {
-  idUsuario: string;
+  id: number;
   dni: number;
   nombre: string;
   fechaNacimiento: string;
   urlUsuario: string;
-  getIdUsuario(urlUsuario: string): string;
+  analiticas: any[];
+
+
 }

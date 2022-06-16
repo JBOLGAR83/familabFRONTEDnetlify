@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuxiliarService } from 'src/app/service/auxiliar.service';
+import { Analitica } from '../models/analitica';
+import { AnaliticaImpl } from '../models/analitica-impl';
+import { OrinaImpl } from '../models/orina-impl';
+import { SangreImpl } from '../models/sangre-impl';
+import { AnaliticaService } from '../service/analitica.service';
+import { OrinaService } from '../service/orina.service';
+import { SangreService } from '../service/sangre.service';
 
 @Component({
   selector: 'app-analiticas',
@@ -6,30 +15,64 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analiticas.component.css']
 })
 export class AnaliticasComponent implements OnInit {
- // personajes: Personaje[] = [];
-  //todosPersonajes: Personaje[] = [];
-  //numPaginas: number = 0;
-
+  /* analiticas: Analitica[] = []; */
+  todosAnaliticas: Analitica[] = [];
+  /* analiticaVerDatos: Analitica = new AnaliticaImpl(0,'','');
+  numPaginas: number = 0;
+ */
+  public sangre: SangreImpl = new SangreImpl(0, '', '',0 ,0);
+  public orina: OrinaImpl = new OrinaImpl(0, '', '',0 ,0);
 
   constructor(
-    //private personajeService: PersonajeService,
-    //private auxService: AuxiliarService
-    ) {}
-  ngOnInit(): void {
-   // this.personajeService.getPersonajes().subscribe((response) => this.personajes = this.personajeService.extraerPersonajes(response));
-    //this.getTodosPersonajes();
-  }
- /*
-  getTodosPersonajes(): void  {
-    this.personajeService.getPersonajes().subscribe(r => {
-      this.numPaginas = this.auxService.getPaginasResponse(r);
-      for (let index = 1; index <= this.numPaginas; index++) {
-        this.personajeService.getPersonajesPagina(index)
-          .subscribe(response => {
-            this.todosPersonajes.push(...this.personajeService.extraerPersonajes(response));
-          });
-      }
-    });
-  }*/
+    private orinaService: OrinaService,
+    private sangreService: SangreService,
+    private router: Router
+  ) {}
 
+  ngOnInit(): void {
+    debugger;
+    this.getTodosAnaliticas();
+  }
+
+  getTodosAnaliticas(): void {
+    this.todosAnaliticas = [];
+    this.sangreService.getSangre().subscribe((response) => {
+      debugger;
+      this.todosAnaliticas.push(
+
+        ...this.sangreService.extraerSangre(response)
+      );
+
+      this.orinaService.getOrina().subscribe((response) => {
+        debugger;
+        this.todosAnaliticas.push(
+          ...this.orinaService.extraerOrina(response)
+        );
+      });
+    });
+  }
+
+  onServicioEliminar(analitica: AnaliticaImpl) {
+    if (analitica.tipo === 2) {
+      this.sangreService
+        .deleteSangre(analitica.id)
+        .subscribe((response) => {
+          //this.router.navigate(['servicios']);
+         /* this.geriatria = this.geriatria.filter(
+            (m: ServicioImpl) => servicio !== m
+          );*/
+          this.getTodosAnaliticas();
+        });
+    } else {
+      this.orinaService
+        .deleteOrina(analitica.id)
+        .subscribe((response) => {
+          //this.router.navigate(['servicios']);
+          /*this.jardineria = this.jardineria.filter(
+            (m: ServicioImpl) => servicio !== m
+          );*/
+          this.getTodosAnaliticas();
+        });
+    }
+  }
 }

@@ -1,22 +1,21 @@
 import { Usuario } from "./usuario";
 
 export class UsuarioImpl implements Usuario{
-  idUsuario: string="";
+  id: number = 0;
   dni: number=0;
   nombre: string="";
   fechaNacimiento: string="";
+  analiticas: any=[];
   urlUsuario: string="";
 
 
-  constructor (dni: number, nombre: string, fechaNacimiento: string){
-
+  constructor (id:number, dni: number, nombre: string, fechaNacimiento: string, urlUsuario: string, analiticas: any[]){
+    this.id = id;
     this.dni = dni;
     this.nombre = nombre;
     this.fechaNacimiento = fechaNacimiento;
+    this.urlUsuario = urlUsuario;
+    this.analiticas = analiticas;
   }
-  getIdUsuario(url: string): string {
-	  url = url.slice(0, url.length - 1)
-	  return url.slice(url.lastIndexOf('/') + 1, url.length);
-	}
-
+  
 }

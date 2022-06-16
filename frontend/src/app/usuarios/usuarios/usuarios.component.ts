@@ -12,7 +12,7 @@ import { UsuarioService } from '../service/usuario.service';
 export class UsuariosComponent implements OnInit {
   usuarios: Usuario[] = [];
   todosUsuarios: Usuario[] = [];
-  usuarioVerDatos: Usuario = new UsuarioImpl(0, '', '');
+  usuarioVerDatos: Usuario = new UsuarioImpl(0,0, '', '', '',[]);
   numPaginas: number = 0;
 
   constructor(
@@ -25,14 +25,26 @@ export class UsuariosComponent implements OnInit {
     this.usuarioService.getUsuarios().subscribe((response) =>
       this.usuarios = this.usuarioService.extraerUsuarios(response));
       this.getTodosUsuarios();
-    }
+    /* this.usuarioService.getUsuarios().subscribe(
+      (lstUser) =>{
+        debugger;
+      this.usuarios =lstUser;
+      this.usuarioService.extraerUsuarios(response));
+      this.getTodosUsuarios();
+    }); */
+  }
 
   verDatos(usuario: Usuario): void {
     this.usuarioVerDatos = usuario;
   }
 
   onUsuarioEliminar(usuario: Usuario): void {
+    debugger;
     console.log(`He eliminado a ${usuario.dni}`);
+    this.usuarioService.deleteUsuario(usuario.id).subscribe(
+      () => { console.log('usuario eliminado');},
+      (error) => {console.error(error);}
+    )
     this.usuarios = this.usuarios.filter(u => usuario !== u);
   }
 
@@ -48,8 +60,8 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
-  borrarUsuario(id: string): void {
-    this.usuarioService.deleteUsuario(id)
+  borrarUsuario(id: number): void {
+    this.usuarioService.deleteUsuario(id);
   }
 
   modificarUsuario(usuario: UsuarioImpl): void {

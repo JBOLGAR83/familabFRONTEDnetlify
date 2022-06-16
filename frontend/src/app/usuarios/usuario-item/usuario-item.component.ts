@@ -8,7 +8,7 @@ import { UsuarioImpl } from '../models/usuario-impl';
   styleUrls: ['./usuario-item.component.css']
 })
 export class UsuarioItemComponent implements OnInit {
-  @Input() usuario: Usuario = new UsuarioImpl(0,'','');
+  @Input() usuario: Usuario = new UsuarioImpl(0,0,'','','',[]);
   @Output() usuarioSeleccionado = new EventEmitter<Usuario>();
 
   constructor() { }
