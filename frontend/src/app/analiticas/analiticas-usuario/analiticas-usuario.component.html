@@ -1,1 +1,28 @@
-<p>analiticas-usuario works!</p>
+
+
+  <a routerLink="/analiticas" class="button">Ver Analiticas</a>
+  <a routerLink="/analiticas/analiticas-form" class="button">Añadir nueva Analitica</a>
+
+  
+<router-outlet></router-outlet>
+
+<div class="row col-md-5">
+  <div class="row">
+  <div class="col-5 col-sm-5 col-md-2 col-lg-3 col-xl-3">ANALITICA</div>
+  <div class="col-md-3">&nbsp;&nbsp;&nbsp;&nbsp;FECHA MUESTRA</div>
+  </div>
+  <div class="row" *ngIf="analitica.tipo==1">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">DENSIDAD</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">PH </div>
+</div>
+<div class="row" *ngIf="analitica.tipo==2">
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">COLESTEROL</div>
+  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">UREA</div>
+</div>
+
+</div>
+
+<div *ngFor="let analitica of todosAnaliticas">
+  <app-analitica-item [analitica]="analitica"  ></app-analitica-item>
+</div>
+

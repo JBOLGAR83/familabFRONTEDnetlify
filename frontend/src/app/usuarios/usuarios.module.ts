@@ -8,7 +8,7 @@ import { AuxiliarService } from '../service/auxiliar.service';
 import { UsuarioComponent } from './usuarios/usuario/usuario.component';
 import { UsuarioItemComponent } from './usuario-item/usuario-item.component';
 import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
-
+  
 
 
 @NgModule({
@@ -16,7 +16,7 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
     UsuariosComponent,
     UsuarioComponent,
     UsuarioItemComponent,
-    UsuarioFormComponent
+    UsuarioFormComponent,
   ],
   imports: [
     CommonModule,

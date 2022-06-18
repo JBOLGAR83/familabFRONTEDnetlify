@@ -4,15 +4,20 @@
   margin: 25em;
 }
 
-body{
+section{
   text-align: center;
-
+  font-style: oblique;
+font-size: large;
+  font-weight: bold;
   margin:2em;
+
 }
 
 div{
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 

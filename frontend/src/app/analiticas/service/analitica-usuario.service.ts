@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class AnaliticaUsuarioService {
   private host: string = environment.host;
-  private urlEndPoint: string = `${this.host}analiticas/`;
+  private urlEndPoint: string = `${this.host}usuarios/`;
   constructor(private http: HttpClient) { }
 
   getAnaliticasUsuario(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}${id}`);
+    return this.http.get<any>(`${this.urlEndPoint}${id}/analiticas`);
   }
 }

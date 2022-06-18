@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AnaliticaService } from '../service/analitica.service';
 import { AnaliticaUsuarioService } from '../service/analitica-usuario.service';
+import { AnaliticaImpl } from '../models/analitica-impl';
 
 @Component({
   selector: 'app-analiticas-usuario',
@@ -10,8 +11,10 @@ import { AnaliticaUsuarioService } from '../service/analitica-usuario.service';
   styleUrls: ['./analiticas-usuario.component.css']
 })
 export class AnaliticasUsuarioComponent implements OnInit {
-  analitica$: Observable<any> = new Observable<any>();
+  @Input() analitica: AnaliticaImpl = new AnaliticaImpl(0,'','','');
 
+  analitica$: Observable<any> = new Observable<any>();
+  todosAnaliticas: AnaliticaImpl[] = [];
   constructor(
     private activateRoute: ActivatedRoute,
     private analiticaService: AnaliticaService,

@@ -2,55 +2,41 @@
   <h3>ANALITICAS</h3>
   <br />
   <form [formGroup]="analiticaForm" (ngSubmit)="onSubmit()">
-
-
     <div class="form-group col-md-3">
       <label>Fecha Muestra</label>
-      <input type="text" formControlName="fecha" class="form-control"
+      <input type="text" class="form-control" formControlName="date"
         placeholder="Introduce la fecha de la muestra AAAA-MM-DD" />
-      <!--    <div *ngIf="f.get('name').invalid && (f.get('name').dirty || f.get('name').touched || submit)" class="error">
-        El nombre es obligatorio
-    </div> -->
-      <!--  </div>
-    <div class="form-group col-md-3">
-      <label>Precio</label>
-      <input
-        type="number"
-        formControlName="price"
-        class="form-control"
-        placeholder="En €"
-      />-->
     </div>
-      <div class="form-group col-md-3" *ngIf="type == 1">
-        <section>
-          <div class="">
-            <label for="densidad">Densidad &nbsp; </label>
-            <section class="form-control">
-              <input type="number" formControlName="Densidad" class="form-control" placeholder="Densidad" />
-              <input type="number" formControlName="Ph" class="form-control" placeholder="Ph" />
-            </section>
-          </div>
-          <app-orina></app-orina>
-        </section>
-      </div>
-
-      <div *ngIf="type == 2">
-        <div class="form-group col-md-3">
-          <label>Colesterol</label>
-          <input type="number" formControlName="colesterol" class="form-control" placeholder="colesterol" />
+    <div class="form-group col-md-3" *ngIf="type == 1">
+      <section>
+        <div class="">
+          <label for="densidad">Densidad &nbsp; </label>
+          <section class="form-control">
+            <input type="number" formControlName="den" class="form-control" placeholder="Densidad" />
+            <input type="number" formControlName="p_h" class="form-control" placeholder="ph" />
+          </section>
         </div>
-        <div class="form-group col-md-3">
-          <label>Urea</label>
-          <input type="name" formControlName="urea" class="form-control" placeholder="urea" />
-        </div>
-      </div>
-
-      <section #botones>
-        <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
-        <button class="btn btn-primary">Aceptar</button>
+        <app-orina></app-orina>
       </section>
-  </form>
-  asan:{{analiticaForm && analiticaForm.value.type == 2}}
-  aori:{{analiticaForm && analiticaForm.value.type == 1}}
+    </div>
 
+    <div *ngIf="type == 2">
+      <div class="form-group col-md-3">
+        <label>Colesterol</label>
+        <input type="number" formControlName="col" class="form-control" placeholder="colesterol" />
+      </div>
+      <div class="form-group col-md-3">
+        <label>Urea</label>
+        <input type="name" formControlName="ure" class="form-control" placeholder="urea" />
+      </div>
+    </div>
+
+    <section #botones>
+      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary">Aceptar</button>
+    </section>
+  </form>
+  asan:{{ analiticaForm && analiticaForm.value.type == 2 }} aori:{{
+  analiticaForm && analiticaForm.value.type == 1
+  }}
 </body>

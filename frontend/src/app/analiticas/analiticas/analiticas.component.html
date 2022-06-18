@@ -1,5 +1,4 @@
-
-<header>
+<!-- <header>
   <a routerLink="ver" class="button">ANALITICAS</a>
   <a routerLink="nuevo" class="button">NUEVA ANALITICA</a>
   </header>
@@ -8,3 +7,34 @@
   <router-outlet></router-outlet>
 
   </body>
+
+  <router-outlet></router-outlet>-->
+<header>
+  <a routerLink="/analiticas" class="button">Ver Analiticas</a>
+  <a routerLink="/analiticas/analiticas-form" class="button">Añadir nueva Analitica</a>
+</header>
+
+<body>
+  <router-outlet></router-outlet>
+  <br><br><br>
+<section>
+  <div class="row col-md-5 ">
+    <div class="col-md-1">
+      ID
+    </div>
+    <div class="col-md-3">
+      TIPO ANALITICA
+    </div>
+    <div class="col-md-3">
+      FECHA MUESTRA
+    </div>
+    <div class="col-md-4">
+      ACCIONES
+    </div>
+  </div>
+</section>
+  <div *ngFor="let analitica of todosAnaliticas">
+    <app-analitica-item [analitica]="analitica" (analiticaEliminar)="onServicioEliminar($event)"
+      (analiticaSeleccionado)="verAnalitica($event)"></app-analitica-item>
+  </div>
+</body>

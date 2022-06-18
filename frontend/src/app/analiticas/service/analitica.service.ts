@@ -11,7 +11,7 @@ import { AnaliticaImpl } from '../models/analitica-impl';
 })
 export class AnaliticaService {
   private host: string = environment.host;
-  private urlEndPointA: string = `${this.host}analiticas`;
+  private urlEndPoint: string = `${this.host}analiticas`;
 
   constructor(
   private http: HttpClient,
@@ -22,17 +22,17 @@ export class AnaliticaService {
   return this.http.get<Usuario[]>(this.urlEndPoint+'/findall');
   } */
   getAnaliticas(): Observable<any> {
-    return this.http.get<any>(this.urlEndPointA);
+    return this.http.get<any>(this.urlEndPoint);
     }
 
-  extraerAnaliticas(respuestaApi: any): Analitica[] {
+  /* extraerAnaliticas(respuestaApi: any): Analitica[] {
   const analiticas: Analitica[] = [];
   respuestaApi._embedded.forEach((a: any) => {
   analiticas.push(this.mapearAnalitica(a));
 
   });
   return analiticas;
-  }
+  } */
 
   mapearAnalitica(analiticaApi: any): AnaliticaImpl {
     const urlSelf = analiticaApi._links.self.href;
@@ -43,6 +43,7 @@ export class AnaliticaService {
   return new AnaliticaImpl(
     id,
     analiticaApi.fechaMuestra,
+    analiticaApi.usuario,
     analiticaApi._links.self.href);
   }
 
@@ -51,20 +52,20 @@ export class AnaliticaService {
   }
 
   postAnalitica(analitica: AnaliticaImpl){
-    this.http.post(this.urlEndPointA, analitica).subscribe();
+    this.http.post(this.urlEndPoint, analitica).subscribe();
   }
 
   deleteAnalitica(id: number):Observable<any> {
-    const url = `${this.urlEndPointA}/${id}`;
+    const url = `${this.urlEndPoint}/${id}`;
     debugger;
     return this.http.delete<any>(url);
   }
 
   patchAnalitica(analitica: AnaliticaImpl) {
-    return this.http.patch<any>(`${this.urlEndPointA}/${analitica.id}`, analitica);
+    return this.http.patch<any>(`${this.urlEndPoint}/${analitica.id}`, analitica);
   }
 
   getAnaliticasPagina(pagina: number): Observable<any> {
-  return this.auxService.getItemsPorPagina(this.urlEndPointA, pagina);
+  return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
 }

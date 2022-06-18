@@ -7,7 +7,7 @@ import { SangreImpl } from '../models/sangre-impl';
   styleUrls: ['./sangre-item.component.css']
 })
 export class SangreItemComponent implements OnInit {
-  @Input() sangre: SangreImpl = new SangreImpl(0,'','',0,0);
+  @Input() sangre: SangreImpl = new SangreImpl(0,'',0,0,'','');
   constructor() { }
 
   ngOnInit(): void {

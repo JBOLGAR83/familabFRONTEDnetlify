@@ -7,7 +7,7 @@ import { OrinaImpl } from '../models/orina-impl';
   styleUrls: ['./orina-item.component.css']
 })
 export class OrinaItemComponent implements OnInit {
-  @Input() orina: OrinaImpl = new OrinaImpl(0,'','',0,0);
+  @Input() orina: OrinaImpl = new OrinaImpl(0,'','',0,0,'');
   constructor() { }
 
   ngOnInit(): void {

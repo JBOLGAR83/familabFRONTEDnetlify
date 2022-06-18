@@ -1,1 +1,72 @@
-<p>analitica-form works!</p>
+<body>
+  <h3>ANALITICAS</h3>
+  <br />
+  <form [formGroup]="analiticaForm" (ngSubmit)="onSubmit()">
+    <div class="form-group col-md-3">
+      <select class="form-control" formControlName="type" (change)="cambiaTipo($event)">
+        <option *ngFor="let elemento of tipos" [value]="elemento.id">
+          <span>{{ elemento.description }}</span>
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-3">
+      <label>Fecha Muestra</label>
+      <input type="text" formControlName="date" class="form-control" placeholder="Fecha Muestra"
+        [ngClass]="{'is-invalid': analitica.fechaMuestra}" />
+
+      <div *ngIf="analitica.fechaMuestra" class="invalid-feedback">
+      </div>
+    </div>
+    <div class="form-group col-md-3" *ngIf="analiticaForm && analiticaForm.value.type == 1">
+      <section>
+        <div class="">
+          <label for="densidad">Densidad &nbsp; </label>
+          <input type="text" formControlName="Densidad" class="form-control" placeholder="Densidad"
+            [ngClass]="{'is-invalid': analitica.fechaMuestra}" />
+        </div>
+        <div class="">
+          <label for="ph">Ph &nbsp; </label>
+          <input type="text" formControlName="Ph" class="form-control" placeholder="Ph"
+            [ngClass]="{'is-invalid': analitica.fechaMuestra}" />
+        </div>
+        <div class="form-group ">
+          <label> Usuario </label>
+          <select class="form-control" formControlName="Usuario" (change)="cambiaTipo($event)">
+            <option *ngFor="let elemento of usuarios" value="{{elemento.urlUsuario}}">
+              <span>{{ elemento.dni }}&nbsp;{{ elemento.nombre }}</span>
+            </option>
+          </select>
+        </div>
+      </section>
+    </div>
+
+    <div *ngIf="analiticaForm && analiticaForm.value.type == 2">
+      <div class="form-group col-md-3">
+        <label>Colesterol</label>
+        <input type="number" formControlName="Colesterol" class="form-control" placeholder="colesterol" />
+      </div>
+
+      <div class="form-group col-md-3">
+        <label>Urea</label>
+        <input type="number" formControlName="Urea" class="form-control" placeholder="urea" />
+      </div>
+      <div class="form-group ">
+        <label> Usuario </label>
+        <select class="form-control" formControlName="Usuario" (change)="cambiaTipo($event)">
+          <option *ngFor="let elemento of usuarios" value="{{elemento.urlUsuario}}">
+            <span>{{ elemento.dni }}&nbsp;{{ elemento.nombre }}</span>
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <section #botones>
+      <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="btn btn-primary">Aceptar</button>
+    </section>
+  </form>
+  asan:{{analiticaForm && analiticaForm.value.type == 2}}
+  aori:{{analiticaForm && analiticaForm.value.type == 1}}
+
+</body>

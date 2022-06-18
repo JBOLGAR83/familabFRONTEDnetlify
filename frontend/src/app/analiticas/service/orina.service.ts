@@ -12,30 +12,27 @@ import { OrinaImpl } from '../models/orina-impl';
 export class OrinaService {
 
   private host: string = environment.host;
-  private urlEndPointO: string = `${this.host}orinas`;
+  private urlEndPoint: string = `${this.host}orinas`;
 
   constructor(private http: HttpClient, private auxService: AuxiliarService) {}
 
   getOrina(): Observable<any> {
-    return this.http.get<any>(this.urlEndPointO);
+    return this.http.get<any>(this.urlEndPoint);
   }
 
   findById(analiticaId: any) :Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointO}/${analiticaId}`);
+    return this.http.get<any>(`${this.urlEndPoint}/${analiticaId}`);
   }
 
   extraerOrina(respuestaApi: any): OrinaImpl[] {
     const orina: OrinaImpl[] = [];
-    debugger;
     respuestaApi._embedded.orinas.forEach((o: any) => {
       orina.push(this.mapearOrina(o));
     });
-    debugger;
     return orina;
   }
 
   mapearOrina(orinaAPI: any): OrinaImpl {
-    debugger;
     const url = orinaAPI._links.self.href;
     const aux = url.split('/');
     const id = (aux[aux.length - 1]);
@@ -44,23 +41,23 @@ export class OrinaService {
       orinaAPI.fechaMuestra,
       orinaAPI.densidad,
       orinaAPI.ph,
-      orinaAPI.urlAnalitica
+      url,
+      orinaAPI.usuario
     );
   }
 
   create(analitica: OrinaImpl):  Observable<any>  {
     const url = `${this.host}orinas`;
 
-    debugger;
     return this.http.post<any>(url, analitica);
   }
 
   update(aori: OrinaImpl, id: number) : Observable<any>  {
-    return this.http.put<any>(`${this.urlEndPointO}/${id}`, aori);
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, aori);
   }
 
   deleteOrina(id: number): Observable<any>{
-    return this.http.delete<OrinaImpl>(`${this.urlEndPointO}/${id}`).pipe(
+    return this.http.delete<OrinaImpl>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.error.mensaje) {
           console.error(e.error.mensaje);
@@ -73,6 +70,6 @@ export class OrinaService {
   }
 
   getOrinaPagina(pagina: number): Observable<any> {
-    return this.auxService.getItemsPorPagina(this.urlEndPointO, pagina);
+    return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
 }

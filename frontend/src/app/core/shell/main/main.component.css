@@ -1,0 +1,15 @@
+main {
+  margin: 100;
+  margin-bottom: 10rem;
+  margin-top: 10em;
+
+}
+
+
+html {
+  background: url(/src/assets/IMAGES/LOGOFAMILAB.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }

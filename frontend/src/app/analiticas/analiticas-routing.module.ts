@@ -20,8 +20,6 @@ const routes: Routes = [
   path: 'edicion-analiticas/:id/:type',
   component: EdicionAnaliticasComponent,
 },
-
-
 {
   path: 'sangres/:id',
   component: SangreComponent,
@@ -29,6 +27,15 @@ const routes: Routes = [
 {
   path: 'orinas/:id',
   component: OrinaComponent,
+},
+{
+  path: 'servicios-empleado/:id',
+  component: AnaliticasUsuarioComponent,
+  children: [
+    {
+      path: 'analitica-item', component: AnaliticasUsuarioComponent
+    }
+  ]
 },
 ];
 

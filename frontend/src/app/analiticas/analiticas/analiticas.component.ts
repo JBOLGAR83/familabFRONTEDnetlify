@@ -16,12 +16,12 @@ import { SangreService } from '../service/sangre.service';
 })
 export class AnaliticasComponent implements OnInit {
   /* analiticas: Analitica[] = []; */
-  todosAnaliticas: Analitica[] = [];
+  todosAnaliticas: AnaliticaImpl[] = [];
   /* analiticaVerDatos: Analitica = new AnaliticaImpl(0,'','');
   numPaginas: number = 0;
  */
-  public sangre: SangreImpl = new SangreImpl(0, '', '',0 ,0);
-  public orina: OrinaImpl = new OrinaImpl(0, '', '',0 ,0);
+  public sangre: SangreImpl = new SangreImpl(0, '', 0,0 ,'', '');
+  public orina: OrinaImpl = new OrinaImpl(0, '', '',0 ,0,'');
 
   constructor(
     private orinaService: OrinaService,
@@ -30,21 +30,18 @@ export class AnaliticasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    debugger;
+
     this.getTodosAnaliticas();
   }
 
   getTodosAnaliticas(): void {
     this.todosAnaliticas = [];
     this.sangreService.getSangre().subscribe((response) => {
-      debugger;
       this.todosAnaliticas.push(
-
         ...this.sangreService.extraerSangre(response)
       );
 
       this.orinaService.getOrina().subscribe((response) => {
-        debugger;
         this.todosAnaliticas.push(
           ...this.orinaService.extraerOrina(response)
         );
@@ -57,22 +54,18 @@ export class AnaliticasComponent implements OnInit {
       this.sangreService
         .deleteSangre(analitica.id)
         .subscribe((response) => {
-          //this.router.navigate(['servicios']);
-         /* this.geriatria = this.geriatria.filter(
-            (m: ServicioImpl) => servicio !== m
-          );*/
           this.getTodosAnaliticas();
         });
     } else {
       this.orinaService
         .deleteOrina(analitica.id)
         .subscribe((response) => {
-          //this.router.navigate(['servicios']);
-          /*this.jardineria = this.jardineria.filter(
-            (m: ServicioImpl) => servicio !== m
-          );*/
           this.getTodosAnaliticas();
         });
     }
+  }
+
+  verAnalitica(analitica: AnaliticaImpl){
+    console.log(analitica);
   }
 }

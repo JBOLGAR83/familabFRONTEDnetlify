@@ -22,11 +22,11 @@ export class EdicionAnaliticasComponent implements OnInit {
     private sangreService: SangreService,
     private orinaService: OrinaService) {
       this.analiticaForm = this.formBuilder.group({
-        fechaMuestra: ['', Validators.required],
-        colesterol: [],
-        urea: [],
-        densidad: [],
-        ph: []
+        date: ['', Validators.required],
+        col: [''],
+        ure: [''],
+        den: [''],
+        p_h: ['']
       })
      }
 
@@ -41,13 +41,13 @@ export class EdicionAnaliticasComponent implements OnInit {
 
 
     this.sangreService.findById(this.id).subscribe(
-      (analitica)=>{
+      (service)=>{
         debugger;
-        console.log(analitica);
+        console.log(service);
         this.analiticaForm = this.formBuilder.group({
-          fechaMuestra: [analitica.fechaMuestra, Validators.required],
-          colesterol: [analitica.colesterol],
-          urea: [analitica.urea],
+          date: [service.fechaMuestra, Validators.required],
+          col: [service.colesterol, Validators.required],
+          ure: [service.urea, Validators.required],
         });
       },
      (error)=> {
@@ -57,14 +57,14 @@ export class EdicionAnaliticasComponent implements OnInit {
 
 
       this.orinaService.findById(this.id).subscribe(
-        (analitica)=>{
+        (service)=>{
           debugger;
-          console.log(analitica);
+          console.log(service);
 
           this.analiticaForm = this.formBuilder.group({
-            fechaMuestra: [analitica.fechaMuestra, Validators.required],
-            densidad: [analitica.densidad],
-            ph: [analitica.ph],
+            date: [service.fechaMuestra, Validators.required],
+            den: [service.densidad, Validators.required],
+            p_h: [service.ph, Validators.required],
           });
         },
        (error)=> {
@@ -84,11 +84,13 @@ export class EdicionAnaliticasComponent implements OnInit {
       if (this.type == 2) {
         const asan: SangreImpl = new SangreImpl(
           0,
-          analiticaEntity.fechaMuestra,
+          analiticaEntity.date,
           analiticaEntity.url,
-          analiticaEntity.colesterol,
-          analiticaEntity.urea
+          analiticaEntity.col,
+          analiticaEntity.ure,
+          analiticaEntity.usuario
         );
+        debugger;
           this.sangreService.update(asan,this.id ).subscribe(
             () => {
               debugger;
@@ -101,10 +103,11 @@ export class EdicionAnaliticasComponent implements OnInit {
       } else {
         const aori: OrinaImpl = new OrinaImpl(
           0,
-          analiticaEntity.fechaMuestra,
+          analiticaEntity.date,
           analiticaEntity.url,
-          analiticaEntity.densidad,
-          analiticaEntity.ph
+          analiticaEntity.den,
+          analiticaEntity.p_h,
+          analiticaEntity.usuario
         );
         this.orinaService.update(aori, this.id).subscribe(
           () => {

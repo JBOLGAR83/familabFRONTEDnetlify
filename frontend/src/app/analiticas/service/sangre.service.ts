@@ -13,16 +13,16 @@ export class SangreService {
 
 
   private host: string = environment.host;
-  private urlEndPointG: string = `${this.host}sangres`;
+  private urlEndPoint: string = `${this.host}sangres`;
 
   constructor(private http: HttpClient, private auxService: AuxiliarService) {}
 
   getSangre(): Observable<any> {
-    return this.http.get<any>(this.urlEndPointG);
+    return this.http.get<any>(this.urlEndPoint);
   }
 
   findById(analiticaId: any) :Observable<any> {
-    return this.http.get<any>(`${this.urlEndPointG}/${analiticaId}`);
+    return this.http.get<any>(`${this.urlEndPoint}/${analiticaId}`);
   }
 
   extraerSangre(respuestaApi: any): SangreImpl[] {
@@ -42,7 +42,8 @@ export class SangreService {
       sangreApi.fechaMuestra,
       sangreApi.colesterol,
       sangreApi.urea,
-      sangreApi.urlAnalitica
+      url,
+      sangreApi.usuario
     );
   }
 
@@ -53,11 +54,11 @@ export class SangreService {
     return this.http.post<any>(url, analitica);
   }
   update(asangre: SangreImpl, id: number) : Observable<any>  {
-    return this.http.put<any>(`${this.urlEndPointG}/${id}`, asangre);
+    return this.http.put<any>(`${this.urlEndPoint}/${id}`, asangre);
   }
 
   deleteSangre(id: number): Observable<any>{
-    return this.http.delete<SangreImpl>(`${this.urlEndPointG}/${id}`).pipe(
+    return this.http.delete<SangreImpl>(`${this.urlEndPoint}/${id}`).pipe(
       catchError((e) => {
         if (e.error.mensaje) {
           console.error(e.error.mensaje);
@@ -70,6 +71,6 @@ export class SangreService {
   }
 
   getSangrePagina(pagina: number): Observable<any> {
-    return this.auxService.getItemsPorPagina(this.urlEndPointG, pagina);
+    return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   }
 }

@@ -15,6 +15,7 @@ import { SangreComponent } from './sangre/sangre.component';
 import { SangreItemComponent } from './sangre-item/sangre-item.component';
 import { OrinaComponent } from './orina/orina.component';
 import { OrinaItemComponent } from './orina-item/orina-item.component';
+import { AnaliticasUsuarioItemComponent } from './analiticas-usuario/analiticas-usuario-item/analiticas-usuario-item.component';
 
 
 
@@ -23,13 +24,13 @@ import { OrinaItemComponent } from './orina-item/orina-item.component';
     AnaliticasComponent,
     AnaliticaFormComponent,
     AnaliticaItemComponent,
-    /* AnaliticaComponent, */
     EdicionAnaliticasComponent,
     AnaliticasUsuarioComponent,
     SangreComponent,
     SangreItemComponent,
     OrinaComponent,
     OrinaItemComponent,
+    AnaliticasUsuarioItemComponent,
 ],
   imports: [
     CommonModule,

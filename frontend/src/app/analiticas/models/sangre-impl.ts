@@ -8,9 +8,9 @@ export class SangreImpl extends AnaliticaImpl  {
   colesterol: number;
   urea: number;
 
-  constructor(id: number, fechaMuestra: string, urlAnalitica: string , colesterol: number, urea: number){
-    super(id, fechaMuestra, urlAnalitica);
-    super.tipo=1;
+  constructor(id: number, fechaMuestra: string, urea: number , colesterol: number, urlAnalitica: string, usuario: string){
+    super(id, fechaMuestra, urlAnalitica, usuario);
+    super.tipo=2;
     this.colesterol=colesterol;
     this.urea = urea;
   }

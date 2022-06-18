@@ -9,9 +9,9 @@ export class OrinaImpl  extends AnaliticaImpl
   ph: number;
 
 
-constructor(id: number,fechaMuestra: string,urlAnalitica:string, densidad: number, ph:number, ){
-  super(id, fechaMuestra, urlAnalitica);
-  super.tipo=2;
+constructor(id:number,fechaMuestra: string,urlAnalitica:string, densidad: number, ph:number, usuario: string ){
+  super(id, fechaMuestra, urlAnalitica, usuario);
+  super.tipo=1;
   this.densidad=densidad;
   this.ph=ph;
 }
