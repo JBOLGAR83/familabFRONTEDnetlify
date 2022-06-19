@@ -66,6 +66,7 @@ export class AnaliticasComponent implements OnInit {
   }
 
   verAnalitica(analitica: AnaliticaImpl){
+    debugger;
     console.log(analitica);
   }
 }

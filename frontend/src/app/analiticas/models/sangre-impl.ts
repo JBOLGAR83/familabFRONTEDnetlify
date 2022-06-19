@@ -11,8 +11,9 @@ export class SangreImpl extends AnaliticaImpl  {
   constructor(id: number, fechaMuestra: string, urea: number , colesterol: number, urlAnalitica: string, usuario: string){
     super(id, fechaMuestra, urlAnalitica, usuario);
     super.tipo=2;
-    this.colesterol=colesterol;
     this.urea = urea;
+    this.colesterol=colesterol;
+
   }
 
   getIdSangre(url: string): string {

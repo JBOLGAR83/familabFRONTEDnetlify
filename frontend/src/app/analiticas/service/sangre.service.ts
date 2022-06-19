@@ -40,8 +40,8 @@ export class SangreService {
     return new SangreImpl(
       id,
       sangreApi.fechaMuestra,
-      sangreApi.colesterol,
       sangreApi.urea,
+      sangreApi.colesterol,
       url,
       sangreApi.usuario
     );

@@ -27,10 +27,10 @@ export class AnaliticaItemComponent implements OnInit {
   modificar = faFilePen;
 
   constructor(
-    private analiticaService: AnaliticaService,
-    private auxService: AuxiliarService,
+    private analiticaService: AnaliticaService
+    /* private auxService: AuxiliarService,
     private activateRoute: ActivatedRoute,
-    private router: Router,
+    private router: Router, */
   ) { }
 
   ngOnInit(): void {

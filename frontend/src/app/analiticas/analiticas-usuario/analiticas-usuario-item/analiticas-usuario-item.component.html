@@ -1,11 +1,55 @@
-
+<!--
 <div class="row col-md-5 "  (ngSubmit)="onSubmit()">
   <hr class="w-100 " />
 
   <div class="col-md-3">
+    {{ analitica.tipo }}
+  </div>
+  <div class="col-md-3">
+    {{ analitica.id }}
+  </div>
+
+  <div class="col-md-3">
     {{ analitica.fechaMuestra }}
   </div>
-  
+
   <div class="col-md-3">
+
+  </div>
+ -->
+
+ <div class="row col-md-5 sep"  (ngSubmit)="onSubmit()">
+  <div class="col-md-1">
+    <a class="" data-toggle="modal"
+    data-target="#modalAnalitica" (click)='analiticaSeleccionado.emit(analitica)'>{{analitica.id}}</a>
+  </div>
+  <div class="col-md-3">
+    {{ analitica.tipo }}
+  </div>
+  <div class="col-md-3">
+    {{ analitica.fechaMuestra }}
+  </div>
+  <div class="col-md-4">
+    <a data-bs-toggle="modal" data-bs-target="#modalVerAnalitica" (click)="obtenerAnalitica()" >
+    &nbsp;<fa-icon class=" fa-2x" [icon]="mirar" ></fa-icon>&nbsp;
+  </a>
+
+   <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="analiticaSeleccionado.emit(analitica) " routerLink="/analiticas/edicion-analiticas{{analitica.id}}/{{analitica.tipo}}">
+    &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
+  </a>
+
+
+  <a   type="button" (click)="borrarAnalitica(analitica.id)" routerLink="/analiticas" >
+    &nbsp;&nbsp;
+    <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
+    &nbsp;
+  </a>
+  </div>
+
+  <!-- <div class="col-sm-4">
+    <a class="" data-bs-toggle="modal" data-bs-target="#modalNegocio" (click)="servicioSeleccionado.emit(servicio)"  >
+      &nbsp;<fa-icon class=" fa-2x" [icon]="eye"></fa-icon>&nbsp;
+    </a> -->
+
 
   </div>

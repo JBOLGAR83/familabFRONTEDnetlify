@@ -23,10 +23,10 @@ export class EdicionAnaliticasComponent implements OnInit {
     private orinaService: OrinaService) {
       this.analiticaForm = this.formBuilder.group({
         date: ['', Validators.required],
-        col: [''],
-        ure: [''],
-        den: [''],
-        p_h: ['']
+        col: [0],
+        ure: [0],
+        den: [0],
+        p_h: [0]
       })
      }
 

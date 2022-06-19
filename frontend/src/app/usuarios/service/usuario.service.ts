@@ -36,6 +36,7 @@ export class UsuarioService {
   }
 
   mapearUsuario(usuarioApi: any): UsuarioImpl {
+    debugger;
     const urlSelf = usuarioApi._links.self.href;
     console.log(urlSelf);
     const url = urlSelf.split('/');
@@ -46,7 +47,7 @@ export class UsuarioService {
   usuarioApi.dni,
   usuarioApi.nombre,
   usuarioApi.fechaNacimiento,
-  usuarioApi.urlUsuario,
+  urlSelf,
   usuarioApi.analiticas);
   }
 

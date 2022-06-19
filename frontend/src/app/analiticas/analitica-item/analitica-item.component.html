@@ -11,8 +11,8 @@
     {{ analitica.fechaMuestra }}
   </div>
   <div class="col-md-4">
-    <a data-bs-toggle="modal" data-bs-target="#modalVerAnalitica" (click)="analiticaSeleccionado.emit(analitica)" (click)="obtenerAnalitica()">
-    &nbsp;<fa-icon class=" fa-2x" [icon]="mirar"></fa-icon>&nbsp;
+    <a data-bs-toggle="modal" data-bs-target="#modalVerAnalitica" (click)="obtenerAnalitica()" >
+    &nbsp;<fa-icon class=" fa-2x" [icon]="mirar" ></fa-icon>&nbsp;
   </a>
 
    <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="analiticaSeleccionado.emit(analitica) " routerLink="/analiticas/edicion-analiticas/{{analitica.id}}/{{analitica.tipo}}">

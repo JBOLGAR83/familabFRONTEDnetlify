@@ -43,18 +43,18 @@ export class AnaliticaFormComponent implements OnInit {
     this.analiticaForm = this.formBuilder.group({
       type: ['', Validators.required],
       date: ['', Validators.required],
-      price: ['', Validators.required],
-      colesterol: [0],
-      urea: [0],
-      densidad: [0],
-      ph: [0],
-      usuario: ['', Validators.required]
+      col: [0],
+      ure: [0],
+      den: [0],
+      p_h: [0],
+      user: ['', Validators.required]
     });
   }
 
   ngOnInit(): void {
     this.usuarioService.getUsuarios().subscribe(
       (response) => {
+        debugger;
         this.usuarios = this.usuarioService.extraerUsuarios(response);
         debugger;
       },
@@ -77,7 +77,7 @@ export class AnaliticaFormComponent implements OnInit {
     debugger;
     if (confirm('Revise los datos antes de aceptar')) {
       debugger;
-      if (!this.analiticaForm.invalid) {
+      if (!this.analiticaForm.invalid || true) {
         if (this.analiticaForm.value.type == 2) {
           const asan: SangreImpl = new SangreImpl(
             0,
@@ -85,7 +85,7 @@ export class AnaliticaFormComponent implements OnInit {
             servicioEntity.ure,
              servicioEntity.col,
             servicioEntity.url,
-            servicioEntity.usuario
+            servicioEntity.user
 
 
           );
@@ -104,7 +104,7 @@ export class AnaliticaFormComponent implements OnInit {
             servicioEntity.url,
             servicioEntity.den,
             servicioEntity.p_h,
-            servicioEntity.usuario
+            servicioEntity.user
           );
           this.orinaService.create(aori).subscribe(
             () => {
@@ -142,53 +142,53 @@ export class AnaliticaFormComponent implements OnInit {
     debugger;
     if (this.analiticaForm.value.type == 2) {
       this.analiticaForm = this.formBuilder.group({
-        type: [this.analiticaForm.value.type, Validators.required],
+        type: [this.analiticaForm.value.type, [Validators.required]],
         date: [
-          this.analiticaForm.value.fechaMuestra,
-          Validators.required,
+          this.analiticaForm.value.date,
+          [Validators.required,
           Validators.maxLength(10),
-          Validators.minLength(10),
+          Validators.minLength(10)]
         ],
-        colesterol: [
-          this.analiticaForm.value.colesterol,
-          Validators.required,
+        col: [
+          this.analiticaForm.value.col,
+          [Validators.required,
           Validators.maxLength(0),
-          Validators.minLength(10),
+          Validators.minLength(10)]
         ],
-        urea: [
+        ure: [
           this.analiticaForm.value.ure,
-          Validators.required,
+          [Validators.required,
           Validators.min(0),
-          Validators.max(10),
+          Validators.max(10)]
         ],
-        densidad: [],
-        ph: [],
-        usuario: [this.analiticaForm.value.usuario, Validators.required]
+        den: [],
+        p_h: [],
+        user: [this.analiticaForm.value.user, [Validators.required]]
       });
     } else {
       this.analiticaForm = this.formBuilder.group({
-        type: [this.analiticaForm.value.type, Validators.required],
-        name: [
-          this.analiticaForm.value.fechaMuestra,
-          Validators.required,
+        type: [this.analiticaForm.value.type, [Validators.required]],
+        date: [
+          this.analiticaForm.value.date,
+          [Validators.required,
           Validators.maxLength(10),
-          Validators.minLength(10),
+          Validators.minLength(10)]
         ],
-        colesterol: [],
-        urea: [],
-        densidad: [
+        col: [],
+        ure: [],
+        den: [
           this.analiticaForm.value.den,
-          Validators.required,
+          [Validators.required,
           Validators.min(0),
-          Validators.max(10),
+          Validators.max(10)]
         ],
-        ph: [
+        p_h: [
           this.analiticaForm.value.p_h,
-          Validators.required,
+          [Validators.required,
           Validators.min(0),
-          Validators.max(10),
+          Validators.max(10)]
         ],
-        usuario: [this.analiticaForm.value.usuario, Validators.required]
+        user: [this.analiticaForm.value.user, [Validators.required]]
       });
     }
   }

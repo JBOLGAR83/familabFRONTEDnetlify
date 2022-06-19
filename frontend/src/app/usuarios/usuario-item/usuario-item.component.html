@@ -4,8 +4,12 @@
     data-target="#modalUsuario" (click)='usuarioSeleccionado.emit(usuario)'>{{usuario.dni}}</a></div>
   <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">{{usuario.nombre}}</div>
   <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">{{usuario.fechaNacimiento}}</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3"><button class="btn btn-info" [routerLink]="['analiticas', usuario.analiticas]">Ver analiticas</button></div>
+  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
+    <button class="btn btn-info"
+    routerLink="/analiticas/analiticas-usuario/{{usuario.id}}"
+   >Ver analiticas</button></div>
   <div class="col-10 col-sm-10 col-md-2 col-lg-2 col-xl-2">
   </div>
 </div>
 
+<!-- [routerLink]="['analiticas', usuario.analiticas]"-->

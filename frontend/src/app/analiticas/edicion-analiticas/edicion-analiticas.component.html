@@ -8,19 +8,21 @@
         placeholder="Introduce la fecha de la muestra AAAA-MM-DD" />
     </div>
     <div class="form-group col-md-3" *ngIf="type == 1">
-      <section>
-        <div class="">
-          <label for="densidad">Densidad &nbsp; </label>
-          <section class="form-control">
-            <input type="number" formControlName="den" class="form-control" placeholder="Densidad" />
-            <input type="number" formControlName="p_h" class="form-control" placeholder="ph" />
-          </section>
-        </div>
-        <app-orina></app-orina>
-      </section>
+
+      <div class="form-group col-md-3">
+        <label>Densidad</label>
+        <input type="number" formControlName="den" class="form-control" placeholder="densidad" />
+      </div>
+      <div class="form-group col-md-3">
+        <label>Ph</label>
+          <input type="number" formControlName="p_h" class="form-control" placeholder="ph" />
+      </div>
+      <app-orina></app-orina>
+
     </div>
 
     <div *ngIf="type == 2">
+
       <div class="form-group col-md-3">
         <label>Colesterol</label>
         <input type="number" formControlName="col" class="form-control" placeholder="colesterol" />
@@ -30,6 +32,7 @@
         <input type="name" formControlName="ure" class="form-control" placeholder="urea" />
       </div>
     </div>
+    <app-sangre></app-sangre>
 
     <section #botones>
       <button type="reset" class="btn">Borrar</button>&nbsp;&nbsp;&nbsp;&nbsp;
