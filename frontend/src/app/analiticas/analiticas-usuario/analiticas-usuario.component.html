@@ -1,30 +1,23 @@
-
 <!--
   <a routerLink="/analiticas" class="button">Ver Analiticas</a>
   <a routerLink="/analiticas/analiticas-form" class="button">Añadir nueva Analitica</a> -->
 
-
 <router-outlet></router-outlet>
 
-
 <div class="content-analiticas">
-  <div *ngIf="name">{{name}}</div>
-
-    <section>
-      <div class="row col-md-5 ">
-        <div class="col-md-3">
-          FECHA MUESTRA
-        </div>
-        <div class="col-md-9">
-          PARAMETROS
-        </div>
-      </div>
-    </section>
-
+  <div class="NombreUsuario" *ngIf="name">USUARIO:</div>
+  <div class="name">{{ name }}</div>
 </div>
+<section>
+
+  <div class="row col-md-5">
+    <div class="col-md-3">FECHA MUESTRA</div>
+    <div class="col-md-9">PARAMETROS</div>
+  </div>
+</section>
+
 
 <div *ngFor="let analitica of todosAnaliticas">
   <app-analitica-item [analitica]="analitica" (analiticaEliminar)="onServicioEliminar($event)"
     (analiticaSeleccionado)="verAnalitica($event)"></app-analitica-item>
 </div>
-

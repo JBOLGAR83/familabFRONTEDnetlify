@@ -21,6 +21,7 @@ export class AnaliticasUsuarioComponent implements OnInit {
   todosAnaliticas: AnaliticaImpl[] = [];
 
   public name: string = '';
+  public dni: number = 0;
   public sangre: SangreImpl = new SangreImpl(0, '', 0, 0, '', '');
   public orina: OrinaImpl = new OrinaImpl(0, '', '', 0, 0, '');
 
@@ -41,6 +42,7 @@ export class AnaliticasUsuarioComponent implements OnInit {
 
     console.log('id = ', this.activateRoute.snapshot.params['id']);
     this.name = this.activateRoute.snapshot.params['name'];
+    this.dni = this.activateRoute.snapshot.params['dni'];
     this.analiticasUsuarioService
       .getAnaliticasUsuario(this.activateRoute.snapshot.params['id'])
       .subscribe(

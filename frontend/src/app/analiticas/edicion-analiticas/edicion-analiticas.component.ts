@@ -114,7 +114,7 @@ export class EdicionAnaliticasComponent implements OnInit {
             ;
             console.log('OK');
           },
-          (error) => {
+          (error:any) => {
             console.error(error);
           }
         );

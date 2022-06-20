@@ -27,7 +27,8 @@ header{
 }
 
 .content-analiticas{
-  padding-top: 150px;
+  margin-top: 150px;
+  margin-left: 800px;
 }
 
 section{
@@ -36,6 +37,13 @@ section{
 font-size: large;
   font-weight: bold;
   margin:2em;
-  margin-top: 8em;
+  margin-top: 4em;
 
 }
+.NombreUsuario
+{
+  font-style: oblique;
+  font-size: larger;
+    font-weight: bold;
+}
+
