@@ -1,20 +1,19 @@
 <section>
-<div class="row">
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">DNI</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">NOMBRE</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">FECHA_NACIMIENTO</div>
-  <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">ANALITICAS</div>
-</div>
-
+  <div class="row">
+    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">DNI</div>
+    <div class="col-10 col-sm-10 col-md-3 col-lg-2 col-xl-2">NOMBRE</div>
+    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">FECHA_NACIMIENTO</div>
+    <div class="col-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">ANALITICAS</div>
+  </div>
 </section>
 
-<div *ngFor = "let usuario of usuarios">
-  <app-usuario-item [usuario]="usuario" (usuarioSeleccionado) = "verDatos($event)"></app-usuario-item>
+<a>
+<div *ngFor="let usuario of usuarios">
+  <app-usuario-item [usuario]="usuario" (usuarioSeleccionado)="verDatos($event)"></app-usuario-item>
 </div>
-
+</a>
 <!-- Modal -->
-<div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="datosUsuario"
-  aria-hidden="true">
+<div class="modal fade" id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="datosUsuario" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -24,7 +23,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-usuario [usuario] ='usuarioVerDatos' (usuarioEliminar) = 'onUsuarioEliminar($event)'></app-usuario>
+        <app-usuario [usuario]='usuarioVerDatos' (usuarioEliminar)='onUsuarioEliminar($event)'></app-usuario>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

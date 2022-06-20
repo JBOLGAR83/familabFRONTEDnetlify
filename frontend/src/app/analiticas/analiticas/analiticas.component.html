@@ -19,22 +19,17 @@
   <br><br><br>
 <section>
   <div class="row col-md-5 ">
-    <div class="col-md-1">
-      ID
-    </div>
-    <div class="col-md-3">
-      TIPO ANALITICA
-    </div>
     <div class="col-md-3">
       FECHA MUESTRA
     </div>
-    <div class="col-md-4">
-      ACCIONES
+    <div class="col-md-9">
+      PARAMETROS
     </div>
   </div>
 </section>
+<div class="content-analiticas">
   <div *ngFor="let analitica of todosAnaliticas">
     <app-analitica-item [analitica]="analitica" (analiticaEliminar)="onServicioEliminar($event)"
       (analiticaSeleccionado)="verAnalitica($event)"></app-analitica-item>
   </div>
-</body>
+</div>

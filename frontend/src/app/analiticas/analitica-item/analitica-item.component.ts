@@ -11,7 +11,7 @@ import { AnaliticaService } from '../service/analitica.service';
   styleUrls: ['./analitica-item.component.css']
 })
 export class AnaliticaItemComponent implements OnInit {
-  @Input() analitica: AnaliticaImpl = new AnaliticaImpl(0, '', '', '');
+  @Input() analitica: any;
   @Output() analiticaSeleccionado = new EventEmitter<AnaliticaImpl>();
   @Output() analiticaEliminar = new EventEmitter<AnaliticaImpl>();
   @Output() analiticaEditar = new EventEmitter<AnaliticaImpl>();
@@ -34,7 +34,8 @@ export class AnaliticaItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    console.log(this.analitica);
+    debugger;
   }
 
   public onSubmit() {

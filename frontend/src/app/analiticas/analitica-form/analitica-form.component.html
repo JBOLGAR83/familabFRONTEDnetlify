@@ -11,7 +11,7 @@
     </div>
 
     <div class="form-group col-md-3">
-      <label>Fecha Muestra</label>
+      <label>FECHA MUESTRA</label>
       <input type="text" formControlName="date" class="form-control" placeholder="Fecha Muestra"
         [ngClass]="{'is-invalid': analitica.id}" />
 
@@ -21,17 +21,17 @@
     <div class="form-group col-md-3" *ngIf="analiticaForm && analiticaForm.value.type == 1">
       <section>
         <div class="">
-          <label for="densidad">Densidad &nbsp; </label>
+          <label for="densidad">DENSIDAD &nbsp; </label>
           <input type="text" formControlName="den" class="form-control" placeholder="Densidad"
             [ngClass]="{'is-invalid': analitica.id}" />
         </div>
         <div class="">
-          <label for="ph">Ph &nbsp; </label>
+          <label for="ph">PH &nbsp; </label>
           <input type="text" formControlName="p_h" class="form-control" placeholder="Ph"
             [ngClass]="{'is-invalid': analitica.id}" />
         </div>
         <div class="form-group ">
-          <label> Usuario </label>
+          <label> USUARIO </label>
           <select class="form-control" formControlName="user">
             <option *ngFor="let elemento of usuarios" value="{{elemento.urlUsuario}}">
               <span>{{ elemento.dni }}&nbsp;{{ elemento.nombre }}</span>
@@ -43,16 +43,18 @@
 
     <div *ngIf="analiticaForm && analiticaForm.value.type == 2">
       <div class="form-group col-md-3">
-        <label>Colesterol</label>
-        <input type="number" formControlName="col" class="form-control" placeholder="colesterol" [ngClass]="{'is-invalid': analitica.id}" />
+        <label>COLESTEROL</label>
+        <input type="number" formControlName="col" class="form-control" placeholder="colesterol"
+          [ngClass]="{'is-invalid': analitica.id}" />
       </div>
 
       <div class="form-group col-md-3">
-        <label>Urea</label>
-        <input type="number" formControlName="ure" class="form-control" placeholder="urea" [ngClass]="{'is-invalid': analitica.id}"  />
+        <label>UREA</label>
+        <input type="number" formControlName="ure" class="form-control" placeholder="urea"
+          [ngClass]="{'is-invalid': analitica.id}" />
       </div>
       <div class="form-group ">
-        <label> Usuario </label>
+        <label> USUARIO </label>
         <select class="form-control" formControlName="user" (change)="cambiaTipo($event)">
           <option *ngFor="let elemento of usuarios" value="{{elemento.urlUsuario}}">
             <span>{{ elemento.dni }}&nbsp;{{ elemento.nombre }}</span>

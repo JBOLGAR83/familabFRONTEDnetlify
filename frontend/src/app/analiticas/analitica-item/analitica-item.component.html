@@ -1,26 +1,31 @@
 
-<div class="row col-md-5 sep"  (ngSubmit)="onSubmit()">
-  <div class="col-md-1">
+<div class="row col-md-5 sep" [ngClass]="{orina: analitica.tipo===1, sangre:analitica.tipo===2}" (ngSubmit)="onSubmit()">
+  <!--<div class="col-md-1">
     <a class="" data-toggle="modal"
     data-target="#modalAnalitica" (click)='analiticaSeleccionado.emit(analitica)'>{{analitica.id}}</a>
-  </div>
-  <div class="col-md-3">
-    {{ analitica.tipo }}
-  </div>
+  </div>-->
   <div class="col-md-3">
     {{ analitica.fechaMuestra }}
   </div>
-  <div class="col-md-4">
-    <a data-bs-toggle="modal" data-bs-target="#modalVerAnalitica" (click)="obtenerAnalitica()" >
-    &nbsp;<fa-icon class=" fa-2x" [icon]="mirar" ></fa-icon>&nbsp;
-  </a>
+  <div class="col-md-3" *ngIf="analitica.tipo ===1">
+    ph {{analitica.ph}}, densidad {{analitica.densidad}}
+  </div>
+  <div class="col-md-3" *ngIf="analitica.tipo ===2">
+    col {{analitica.colesterol}}, urea {{analitica.urea}}
+  </div>
 
-   <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="analiticaSeleccionado.emit(analitica) " routerLink="/analiticas/edicion-analiticas/{{analitica.id}}/{{analitica.tipo}}">
+  <div class="col-md-4">
+   <!--  <a data-bs-toggle="modal" data-bs-target="#modalVerAnalitica" (click)="obtenerAnalitica()" >
+    &nbsp;<fa-icon class=" fa-2x" [icon]="mirar" ></fa-icon>&nbsp;
+  </a> -->
+
+   <a data-bs-toggle="modal" data-bs-target="#modalModificar" (click)="analiticaSeleccionado.emit(analitica) "
+   routerLink="/analiticas/edicion-analiticas/{{analitica.id}}/{{analitica.tipo}}">
     &nbsp;<fa-icon class=" fa-2x" [icon]="modificar"></fa-icon>&nbsp;
   </a>
 
 
-  <a   type="button" (click)="borrarAnalitica(analitica.id)" routerLink="/analiticas" >
+  <a   type="button" (click)="borrarAnalitica(analitica.id)">
     &nbsp;&nbsp;
     <fa-icon class=" fa-2x" [icon]="trash"></fa-icon>
     &nbsp;

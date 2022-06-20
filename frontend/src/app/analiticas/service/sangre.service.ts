@@ -50,7 +50,7 @@ export class SangreService {
   create(analitica: SangreImpl):  Observable<any>  {
     const url = `${this.host}sangres`;
 
-    debugger;
+    ;
     return this.http.post<any>(url, analitica);
   }
   update(asangre: SangreImpl, id: number) : Observable<any>  {

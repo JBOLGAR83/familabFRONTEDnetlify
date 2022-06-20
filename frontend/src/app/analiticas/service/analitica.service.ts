@@ -18,7 +18,7 @@ export class AnaliticaService {
   private auxService: AuxiliarService) { }
 
   /* getUsuarios(): Observable<Usuario[]> {
-    debugger;
+    ;
   return this.http.get<Usuario[]>(this.urlEndPoint+'/findall');
   } */
   getAnaliticas(): Observable<any> {
@@ -57,7 +57,7 @@ export class AnaliticaService {
 
   deleteAnalitica(id: number):Observable<any> {
     const url = `${this.urlEndPoint}/${id}`;
-    debugger;
+    ;
     return this.http.delete<any>(url);
   }
 

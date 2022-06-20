@@ -19,7 +19,7 @@ export class UsuarioService {
   private auxService: AuxiliarService) { }
 
   /* getUsuarios(): Observable<Usuario[]> {
-    debugger;
+    ;
   return this.http.get<Usuario[]>(this.urlEndPoint+'/findall');
   } */
   getUsuarios(): Observable<any> {
@@ -36,7 +36,7 @@ export class UsuarioService {
   }
 
   mapearUsuario(usuarioApi: any): UsuarioImpl {
-    debugger;
+    ;
     const urlSelf = usuarioApi._links.self.href;
     console.log(urlSelf);
     const url = urlSelf.split('/');
@@ -61,7 +61,7 @@ export class UsuarioService {
 
   deleteUsuario(id: number):Observable<any> {
     const url = `${this.urlEndPoint}/${id}`;
-    debugger;
+    ;
     return this.http.delete<any>(url);
   }
 

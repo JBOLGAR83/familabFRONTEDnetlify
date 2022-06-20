@@ -3,18 +3,20 @@
   <br />
   <form [formGroup]="analiticaForm" (ngSubmit)="onSubmit()">
     <div class="form-group col-md-3">
-      <label>Fecha Muestra</label>
-      <input type="text" class="form-control" formControlName="date"
+      <label>FECHA MUESTRA</label>
+      <input type="text"
+      class="form-control"
+      formControlName="date"
         placeholder="Introduce la fecha de la muestra AAAA-MM-DD" />
     </div>
     <div class="form-group col-md-3" *ngIf="type == 1">
 
       <div class="form-group col-md-3">
-        <label>Densidad</label>
+        <label>DENSIDAD</label>
         <input type="number" formControlName="den" class="form-control" placeholder="densidad" />
       </div>
       <div class="form-group col-md-3">
-        <label>Ph</label>
+        <label>PH</label>
           <input type="number" formControlName="p_h" class="form-control" placeholder="ph" />
       </div>
       <app-orina></app-orina>
@@ -24,11 +26,11 @@
     <div *ngIf="type == 2">
 
       <div class="form-group col-md-3">
-        <label>Colesterol</label>
+        <label>COLESTEROL</label>
         <input type="number" formControlName="col" class="form-control" placeholder="colesterol" />
       </div>
       <div class="form-group col-md-3">
-        <label>Urea</label>
+        <label>UREA</label>
         <input type="name" formControlName="ure" class="form-control" placeholder="urea" />
       </div>
     </div>
@@ -39,7 +41,7 @@
       <button class="btn btn-primary">Aceptar</button>
     </section>
   </form>
-  asan:{{ analiticaForm && analiticaForm.value.type == 2 }} aori:{{
-  analiticaForm && analiticaForm.value.type == 1
+  asan:{{ analiticaForm && analiticaForm.value.type == 2 }}
+  aori:{{analiticaForm && analiticaForm.value.type == 1
   }}
 </body>

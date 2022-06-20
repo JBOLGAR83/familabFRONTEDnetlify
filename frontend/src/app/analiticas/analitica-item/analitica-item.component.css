@@ -29,3 +29,13 @@ header{
 .sep{
   padding-top: 20px;
 }
+
+.orina{
+  background-color: #d1d897;
+  border: 1px grey solid;
+}
+.sangre{
+  background-color: #e68f7b;
+  border: 1px grey solid;
+}
+

@@ -29,7 +29,7 @@ const routes: Routes = [
   component: OrinaComponent,
 },
 {
-  path: 'analiticas-usuario/:id',
+  path: 'analiticas-usuario/:id/:name',
   component: AnaliticasUsuarioComponent,
   children: [
     {

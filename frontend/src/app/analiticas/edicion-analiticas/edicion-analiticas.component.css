@@ -22,3 +22,8 @@ form
 {
   margin-top:10em;
 }
+label
+ {
+  font-weight: bold;
+  font-style: oblique;
+ }

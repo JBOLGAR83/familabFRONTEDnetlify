@@ -54,9 +54,9 @@ export class AnaliticaFormComponent implements OnInit {
   ngOnInit(): void {
     this.usuarioService.getUsuarios().subscribe(
       (response) => {
-        debugger;
+        ;
         this.usuarios = this.usuarioService.extraerUsuarios(response);
-        debugger;
+        ;
       },
       (error) => {
         console.error(error);
@@ -69,14 +69,14 @@ export class AnaliticaFormComponent implements OnInit {
   }
 
   public onSubmit() {
-    debugger;
+    ;
 
     this.submitted = true;
 
     const servicioEntity = this.analiticaForm.value;
-    debugger;
+    ;
     if (confirm('Revise los datos antes de aceptar')) {
-      debugger;
+      ;
       if (!this.analiticaForm.invalid || true) {
         if (this.analiticaForm.value.type == 2) {
           const asan: SangreImpl = new SangreImpl(
@@ -139,7 +139,7 @@ export class AnaliticaFormComponent implements OnInit {
   cambiaTipo(event: any) {
     const val = event.currentTarget.value;
     console.log(this.analiticaForm.value.type);
-    debugger;
+    ;
     if (this.analiticaForm.value.type == 2) {
       this.analiticaForm = this.formBuilder.group({
         type: [this.analiticaForm.value.type, [Validators.required]],
@@ -147,7 +147,8 @@ export class AnaliticaFormComponent implements OnInit {
           this.analiticaForm.value.date,
           [Validators.required,
           Validators.maxLength(10),
-          Validators.minLength(10)]
+          Validators.minLength(10),
+        ]
         ],
         col: [
           this.analiticaForm.value.col,
@@ -159,7 +160,8 @@ export class AnaliticaFormComponent implements OnInit {
           this.analiticaForm.value.ure,
           [Validators.required,
           Validators.min(0),
-          Validators.max(10)]
+          Validators.max(100),
+        ]
         ],
         den: [],
         p_h: [],

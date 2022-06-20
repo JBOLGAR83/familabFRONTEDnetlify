@@ -6,26 +6,25 @@
 
 <router-outlet></router-outlet>
 
+
 <div class="content-analiticas">
-  <div class="row col-md-5">
-  <div class="row">
-  <div class="col-5 col-sm-5 col-md-2 col-lg-3 col-xl-3">ANALITICA</div>
-  <div class="col-md-3">FECHA MUESTRA</div>
-  </div>
-  <div class="row" *ngIf="analitica.tipo==1">
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">DENSIDAD</div>
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">PH </div>
-</div>
-<div class="row" *ngIf="analitica.tipo==2">
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">COLESTEROL</div>
-  <div class="col-5 col-sm-5 col-md-3 col-lg-3 col-xl-3">UREA</div>
-</div>
+  <div *ngIf="name">{{name}}</div>
+
+    <section>
+      <div class="row col-md-5 ">
+        <div class="col-md-3">
+          FECHA MUESTRA
+        </div>
+        <div class="col-md-9">
+          PARAMETROS
+        </div>
+      </div>
+    </section>
 
 </div>
 
-<div class="dani" *ngFor="let analitica of todosAnaliticas">
-  <app-analiticas-usuario-item [analitica]="analitica"  ></app-analiticas-usuario-item>
+<div *ngFor="let analitica of todosAnaliticas">
+  <app-analitica-item [analitica]="analitica" (analiticaEliminar)="onServicioEliminar($event)"
+    (analiticaSeleccionado)="verAnalitica($event)"></app-analitica-item>
 </div>
-</div>
-
 

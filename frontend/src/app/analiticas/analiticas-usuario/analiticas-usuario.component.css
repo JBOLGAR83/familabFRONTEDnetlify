@@ -29,3 +29,13 @@ header{
 .content-analiticas{
   padding-top: 150px;
 }
+
+section{
+  text-align: center;
+  font-style: oblique;
+font-size: large;
+  font-weight: bold;
+  margin:2em;
+  margin-top: 8em;
+
+}

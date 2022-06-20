@@ -36,12 +36,13 @@ export class OrinaService {
     const url = orinaAPI._links.self.href;
     const aux = url.split('/');
     const id = (aux[aux.length - 1]);
+    ;
     return new OrinaImpl(
       id,
       orinaAPI.fechaMuestra,
+      url,
       orinaAPI.densidad,
       orinaAPI.ph,
-      url,
       orinaAPI.usuario
     );
   }

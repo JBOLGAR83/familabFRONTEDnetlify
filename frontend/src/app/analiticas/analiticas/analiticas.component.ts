@@ -35,6 +35,7 @@ export class AnaliticasComponent implements OnInit {
   }
 
   getTodosAnaliticas(): void {
+    ;
     this.todosAnaliticas = [];
     this.sangreService.getSangre().subscribe((response) => {
       this.todosAnaliticas.push(
@@ -42,6 +43,7 @@ export class AnaliticasComponent implements OnInit {
       );
 
       this.orinaService.getOrina().subscribe((response) => {
+        ;
         this.todosAnaliticas.push(
           ...this.orinaService.extraerOrina(response)
         );
@@ -50,6 +52,7 @@ export class AnaliticasComponent implements OnInit {
   }
 
   onServicioEliminar(analitica: AnaliticaImpl) {
+      debugger;
     if (analitica.tipo === 2) {
       this.sangreService
         .deleteSangre(analitica.id)
@@ -66,7 +69,7 @@ export class AnaliticasComponent implements OnInit {
   }
 
   verAnalitica(analitica: AnaliticaImpl){
-    debugger;
+    ;
     console.log(analitica);
   }
 }

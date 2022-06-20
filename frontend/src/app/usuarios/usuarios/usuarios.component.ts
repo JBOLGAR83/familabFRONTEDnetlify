@@ -22,12 +22,15 @@ export class UsuariosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.usuarioService.getUsuarios().subscribe((response) =>
-      this.usuarios = this.usuarioService.extraerUsuarios(response));
-      this.getTodosUsuarios();
+    this.usuarioService.getUsuarios().subscribe((response) =>{
+      ;
+      this.usuarios = this.usuarioService.extraerUsuarios(response)
+    });
+      //this.getTodosUsuarios();
+
     /* this.usuarioService.getUsuarios().subscribe(
       (lstUser) =>{
-        debugger;
+        ;
       this.usuarios =lstUser;
       this.usuarioService.extraerUsuarios(response));
       this.getTodosUsuarios();
@@ -39,7 +42,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   onUsuarioEliminar(usuario: Usuario): void {
-    debugger;
+    ;
     console.log(`He eliminado a ${usuario.dni}`);
     this.usuarioService.deleteUsuario(usuario.id).subscribe(
       () => { console.log('usuario eliminado');},

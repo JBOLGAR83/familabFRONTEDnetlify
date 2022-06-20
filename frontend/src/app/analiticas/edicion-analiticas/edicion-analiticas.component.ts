@@ -31,7 +31,7 @@ export class EdicionAnaliticasComponent implements OnInit {
      }
 
   ngOnInit(): void {
-    debugger;
+    ;
     this.id = this.route.snapshot.params['id'];
     this.type = parseInt(this.route.snapshot.params['type']);
     console.log(this.id);
@@ -42,7 +42,7 @@ export class EdicionAnaliticasComponent implements OnInit {
 
     this.sangreService.findById(this.id).subscribe(
       (service)=>{
-        debugger;
+        ;
         console.log(service);
         this.analiticaForm = this.formBuilder.group({
           date: [service.fechaMuestra, Validators.required],
@@ -58,7 +58,7 @@ export class EdicionAnaliticasComponent implements OnInit {
 
       this.orinaService.findById(this.id).subscribe(
         (service)=>{
-          debugger;
+          ;
           console.log(service);
 
           this.analiticaForm = this.formBuilder.group({
@@ -74,12 +74,12 @@ export class EdicionAnaliticasComponent implements OnInit {
   }
 
   public onSubmit() {
-    debugger;
+    ;
 
     const analiticaEntity = this.analiticaForm.value;
-    debugger;
-    if (confirm('Realmente quiere añadir un nuevo elemento')){
-      debugger;
+    ;
+    if (confirm('¿Está seguro de modificar la analitica?')){
+      ;
     if (!this.analiticaForm.invalid) {
       if (this.type == 2) {
         const asan: SangreImpl = new SangreImpl(
@@ -90,10 +90,10 @@ export class EdicionAnaliticasComponent implements OnInit {
           analiticaEntity.ure,
           analiticaEntity.usuario
         );
-        debugger;
+        ;
           this.sangreService.update(asan,this.id ).subscribe(
             () => {
-              debugger;
+              ;
               console.log('OK');
             },
             (error:any) => {
@@ -111,7 +111,7 @@ export class EdicionAnaliticasComponent implements OnInit {
         );
         this.orinaService.update(aori, this.id).subscribe(
           () => {
-            debugger;
+            ;
             console.log('OK');
           },
           (error) => {
