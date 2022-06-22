@@ -40,12 +40,11 @@ export class AnaliticasUsuarioItemComponent implements OnInit {
 
   }
   borrarAnalitica(analitica: AnaliticaImpl["id"]): void {
-    //    this.negocioService.deleteNegocio(this.negocioItem.urlNegocio);
-    if (confirm('Confirme para eliminar')) {
+    /* if (confirm('Confirme para eliminar')) { */
       this.analiticaEliminar.emit(this.analitica);
 
 
-    }
+    /* } */
 
   }
   obtenerAnalitica() {

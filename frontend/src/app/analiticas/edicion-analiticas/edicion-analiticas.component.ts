@@ -78,7 +78,7 @@ export class EdicionAnaliticasComponent implements OnInit {
 
     const analiticaEntity = this.analiticaForm.value;
     ;
-    if (confirm('¿Está seguro de modificar la analitica?')){
+   /*  if (confirm('¿Está seguro de modificar la analitica?')){ */
       ;
     if (!this.analiticaForm.invalid) {
       if (this.type == 2) {
@@ -120,7 +120,7 @@ export class EdicionAnaliticasComponent implements OnInit {
         );
       }
     }
-    }
+   /*  } */
   }
 
 

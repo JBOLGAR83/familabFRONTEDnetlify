@@ -75,7 +75,7 @@ export class AnaliticaFormComponent implements OnInit {
 
     const servicioEntity = this.analiticaForm.value;
     ;
-    if (confirm('Revise los datos antes de aceptar')) {
+   /*  if (confirm('Revise los datos antes de aceptar')) { */
       ;
       if (!this.analiticaForm.invalid || true) {
         if (this.analiticaForm.value.type == 2) {
@@ -116,17 +116,17 @@ export class AnaliticaFormComponent implements OnInit {
           );
         }
       }
-    }
+   /*  } */
 
     //se para aqui si el formulario es invalido
     if (this.analiticaForm.invalid) {
       return;
     }
     //display si hay exito
-    alert(
+   /*  alert(
       'GUARDADO CON EXITO' +
       JSON.stringify(this.analiticaForm.value, null, 4)
-    );
+    ); */
 
     console.warn('Your order has been submitted', customerData);
   }
