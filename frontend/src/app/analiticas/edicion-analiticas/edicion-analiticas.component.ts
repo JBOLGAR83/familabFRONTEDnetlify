@@ -34,8 +34,8 @@ export class EdicionAnaliticasComponent implements OnInit {
     ;
     this.id = this.route.snapshot.params['id'];
     this.type = parseInt(this.route.snapshot.params['type']);
-    console.log(this.id);
-    console.log(this.type);
+  /*   console.log(this.id);
+    console.log(this.type); */
 
     if(this.type === 2){
 
@@ -43,7 +43,7 @@ export class EdicionAnaliticasComponent implements OnInit {
     this.sangreService.findById(this.id).subscribe(
       (service)=>{
         ;
-        console.log(service);
+      /*   console.log(service); */
         this.analiticaForm = this.formBuilder.group({
           date: [service.fechaMuestra, Validators.required],
           col: [service.colesterol, Validators.required],
@@ -51,7 +51,7 @@ export class EdicionAnaliticasComponent implements OnInit {
         });
       },
      (error)=> {
-      console.error(error);
+    /*   console.error(error); */
      });
     }else{
 
@@ -59,7 +59,7 @@ export class EdicionAnaliticasComponent implements OnInit {
       this.orinaService.findById(this.id).subscribe(
         (service)=>{
           ;
-          console.log(service);
+         /*  console.log(service); */
 
           this.analiticaForm = this.formBuilder.group({
             date: [service.fechaMuestra, Validators.required],
@@ -68,7 +68,7 @@ export class EdicionAnaliticasComponent implements OnInit {
           });
         },
        (error)=> {
-        console.error(error);
+      /*   console.error(error); */
        });
     }
   }
@@ -94,10 +94,10 @@ export class EdicionAnaliticasComponent implements OnInit {
           this.sangreService.update(asan,this.id ).subscribe(
             () => {
               ;
-              console.log('OK');
+            /*   console.log('OK'); */
             },
             (error:any) => {
-              console.error(error);
+             /*  console.error(error); */
             }
           );
       } else {
@@ -112,10 +112,10 @@ export class EdicionAnaliticasComponent implements OnInit {
         this.orinaService.update(aori, this.id).subscribe(
           () => {
             ;
-            console.log('OK');
+    /*         console.log('OK'); */
           },
           (error:any) => {
-            console.error(error);
+         /*    console.error(error); */
           }
         );
       }

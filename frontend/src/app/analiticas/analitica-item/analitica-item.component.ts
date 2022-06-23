@@ -34,8 +34,8 @@ export class AnaliticaItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.analitica);
-    debugger;
+/*     console.log(this.analitica); */
+/*     debugger; */
   }
 
   public onSubmit() {

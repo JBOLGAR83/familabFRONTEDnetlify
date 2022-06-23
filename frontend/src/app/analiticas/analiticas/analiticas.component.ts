@@ -52,7 +52,7 @@ export class AnaliticasComponent implements OnInit {
   }
 
   onServicioEliminar(analitica: AnaliticaImpl) {
-      debugger;
+  /*     debugger; */
     if (analitica.tipo === 2) {
       this.sangreService
         .deleteSangre(analitica.id)
@@ -70,6 +70,6 @@ export class AnaliticasComponent implements OnInit {
 
   verAnalitica(analitica: AnaliticaImpl){
     ;
-    console.log(analitica);
+  /*   console.log(analitica); */
   }
 }

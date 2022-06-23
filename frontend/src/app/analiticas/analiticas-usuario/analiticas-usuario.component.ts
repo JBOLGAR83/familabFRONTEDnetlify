@@ -40,17 +40,17 @@ export class AnaliticasUsuarioComponent implements OnInit {
   cargarAnalitica(): any {
   this.todosAnaliticas=[];
 
-    console.log('id = ', this.activateRoute.snapshot.params['id']);
+  /*   console.log('id = ', this.activateRoute.snapshot.params['id']); */
     this.name = this.activateRoute.snapshot.params['name'];
     this.dni = this.activateRoute.snapshot.params['dni'];
     this.analiticasUsuarioService
       .getAnaliticasUsuario(this.activateRoute.snapshot.params['id'])
       .subscribe(
         (user) => {
-          console.log(user);
+         /*  console.log(user); */
           if (user._embedded.sangres) {
             user._embedded.sangres.forEach((a: any) => {
-              debugger;
+          /*     debugger; */
               const urlSelf = a._links.self.href;
               const url = urlSelf.split('/');
               const id = parseInt(url[url.length - 1]);
@@ -87,6 +87,6 @@ export class AnaliticasUsuarioComponent implements OnInit {
     }
   }
   verAnalitica(analitica: AnaliticaImpl) {
-    console.log(analitica);
+  /*   console.log(analitica); */
   }
 }

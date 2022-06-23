@@ -38,7 +38,7 @@ export class UsuarioService {
   mapearUsuario(usuarioApi: any): UsuarioImpl {
     ;
     const urlSelf = usuarioApi._links.self.href;
-    console.log(urlSelf);
+   /*  console.log(urlSelf); */
     const url = urlSelf.split('/');
 	  const id =   parseInt(url[url.length -1]);
 
@@ -52,7 +52,7 @@ export class UsuarioService {
   }
 
   create(usuario: Usuario): void {
-  console.log(`Se ha creado el usuario: ${JSON.stringify(usuario)}`);
+ /*  console.log(`Se ha creado el usuario: ${JSON.stringify(usuario)}`); */
   }
 
   postUsuario(usuario: UsuarioImpl){

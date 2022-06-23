@@ -91,10 +91,10 @@ export class AnaliticaFormComponent implements OnInit {
           );
           this.sangreService.create(asan).subscribe(
             () => {
-              console.log('OK');
+            /*   console.log('OK'); */
             },
             (error: any) => {
-              console.error(error);
+            /*   console.error(error); */
             }
           );
         } else {
@@ -108,10 +108,10 @@ export class AnaliticaFormComponent implements OnInit {
           );
           this.orinaService.create(aori).subscribe(
             () => {
-              console.log('OK');
+              /* console.log('OK'); */
             },
             (error) => {
-              console.error(error);
+            /*   console.error(error); */
             }
           );
         }
@@ -128,7 +128,7 @@ export class AnaliticaFormComponent implements OnInit {
       JSON.stringify(this.analiticaForm.value, null, 4)
     ); */
 
-    console.warn('Your order has been submitted', customerData);
+    /* console.warn('Your order has been submitted', customerData); */
   }
 
   OnReset() {
@@ -138,7 +138,7 @@ export class AnaliticaFormComponent implements OnInit {
 
   cambiaTipo(event: any) {
     const val = event.currentTarget.value;
-    console.log(this.analiticaForm.value.type);
+   /*  console.log(this.analiticaForm.value.type); */
     ;
     if (this.analiticaForm.value.type == 2) {
       this.analiticaForm = this.formBuilder.group({

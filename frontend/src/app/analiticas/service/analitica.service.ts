@@ -36,7 +36,7 @@ export class AnaliticaService {
 
   mapearAnalitica(analiticaApi: any): AnaliticaImpl {
     const urlSelf = analiticaApi._links.self.href;
-    console.log(urlSelf);
+   /*  console.log(urlSelf); */
     const url = urlSelf.split('/');
 	  const id =   parseInt(url[url.length -1]);
 
@@ -48,7 +48,7 @@ export class AnaliticaService {
   }
 
   create(analitica: Analitica): void {
-  console.log(`Se ha creado la analitica: ${JSON.stringify(analitica)}`);
+ /*  console.log(`Se ha creado la analitica: ${JSON.stringify(analitica)}`); */
   }
 
   postAnalitica(analitica: AnaliticaImpl){

@@ -43,10 +43,10 @@ export class UsuariosComponent implements OnInit {
 
   onUsuarioEliminar(usuario: Usuario): void {
     ;
-    console.log(`He eliminado a ${usuario.dni}`);
+    /* console.log(`He eliminado a ${usuario.dni}`); */
     this.usuarioService.deleteUsuario(usuario.id).subscribe(
-      () => { console.log('usuario eliminado');},
-      (error) => {console.error(error);}
+      () => {/*  console.log('usuario eliminado'); */},
+      (error) => {/* console.error(error); */}
     )
     this.usuarios = this.usuarios.filter(u => usuario !== u);
   }
